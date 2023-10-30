@@ -31,5 +31,5 @@ PUT http://localhost:8080/clamed/task/{id}
 }
 ```
 #### URL DELETE:
-PUT http://localhost:8080/clamed/task/{id}
+DELETE http://localhost:8080/clamed/task/{id}
 
