@@ -30,3 +30,6 @@ PUT http://localhost:8080/clamed/task/{id}
   "assigneeName": "Beltrano"
 }
 ```
+#### URL DELETE:
+PUT http://localhost:8080/clamed/task/{id}
+
