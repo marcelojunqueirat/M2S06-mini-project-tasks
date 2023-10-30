@@ -1,6 +1,7 @@
 package org.senai.m2s06.task.controller;
 
 import jakarta.validation.Valid;
+import org.senai.m2s06.task.exception.NotFoundException;
 import org.senai.m2s06.task.model.enums.PriorityEnum;
 import org.senai.m2s06.task.model.enums.StatusEnum;
 import org.senai.m2s06.task.model.transport.TaskDTO;
@@ -33,6 +34,12 @@ public class TaskController {
         if (response.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TaskDTO> update(@PathVariable("id") Integer id, @RequestBody TaskDTO taskDTO) throws NotFoundException {
+        TaskDTO response = this.taskService.update(id, taskDTO);
         return ResponseEntity.ok(response);
     }
 }

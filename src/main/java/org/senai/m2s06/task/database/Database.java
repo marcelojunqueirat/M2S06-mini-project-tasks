@@ -24,6 +24,12 @@ public class Database {
         return Database.tasks;
     }
 
+    public static Task get(Integer id) throws NotFoundException {
+        return Database.tasks.stream()
+                .filter(task -> task.getId().equals(id))
+                .findFirst().orElseThrow(() -> new NotFoundException("A tarefa não foi encontrada."));
+    }
+
     public static Integer setId() {
         Database.nextId = Database.nextId + 1;
         return Database.nextId;
